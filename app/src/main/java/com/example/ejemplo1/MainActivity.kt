@@ -86,7 +86,8 @@ fun TextField1() {
         onValueChange = {
             text = it
         },
-        placeholder = { Text(text = "Valor 1") },
+        label = { Text(text = "Valor 1") },
+        placeholder = { Text(text = "Teclea el primer valor") },
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
         modifier = Modifier.fillMaxWidth(0.8f)
     )
@@ -100,7 +101,8 @@ fun TextField2 (){
         onValueChange = {
             text = it
         },
-        placeholder = { Text(text = "Valor 2")},
+        label = { Text(text = "Valor 2") },
+        placeholder = { Text(text = "Teclea el segundo valor") },
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
         modifier = Modifier.fillMaxWidth(0.8f)
     )
