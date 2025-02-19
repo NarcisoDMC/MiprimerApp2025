@@ -46,23 +46,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Ejemplo1Theme {
-                Backimage()
-                Box(
-                    modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.Center
-                ){
-                    Column(
-                        verticalArrangement = Arrangement.Center,
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                    ){
-                        TextField1()
-                        Spacer(modifier = Modifier.height(12.dp))
-                        TextField2()
-                        Spacer(modifier = Modifier.height(18.dp))
-                        ButtonCalculate()
-                    }
-                }
-
+                Content()
             }
         }
     }
@@ -79,7 +63,7 @@ fun Backimage(){
 }
 
 @Composable
-fun TextField1() {
+fun TextField1():TextFieldValue {
     var text by remember { mutableStateOf(TextFieldValue("")) }
     TextField(
         value = text,
@@ -91,29 +75,68 @@ fun TextField1() {
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
         modifier = Modifier.fillMaxWidth(0.8f)
     )
+    return text
 }
 
 @Composable
-fun TextField2 (){
+fun TextField2():TextFieldValue{
     var text by remember { mutableStateOf(TextFieldValue(""))}
     TextField(
         value = text,
         onValueChange = {
             text = it
         },
-        label = { Text(text = "Valor 2") },
-        placeholder = { Text(text = "Teclea el segundo valor") },
+        label = { Text(text = "Valor 1") },
+        placeholder = { Text(text = "Teclea el primer valor") },
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
         modifier = Modifier.fillMaxWidth(0.8f)
     )
+    return text
+}
+
+@Composable
+fun Content(){
+    Column {
+        Backimage()
+
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            Column(
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ){
+                ButtonCalculate()
+            }
+        }
+
+    }
 }
 
 @Composable
 fun ButtonCalculate(){
-    Button(onClick = {
+    var numero1 = TextField1()
+    Spacer(modifier = Modifier.height(12.dp))
+    var numero2 = TextField2()
+    Spacer(modifier = Modifier.height(12.dp))
+    var resultado by remember { mutableStateOf(0)}
 
-    }) {
+    Button(
+        onClick = {
+            val num1 = numero1.text.toInt()
+            val num2 = numero2.text.toInt()
+            resultado = num1 + num2
+        }){
         Text(text = "Calcular")
     }
+
+    Text(
+        text = "Resultado: $resultado",
+        fontSize = 24.sp,
+        textAlign = TextAlign.Center,
+        modifier = Modifier
+            .padding(28.dp)
+    )
 }
 
