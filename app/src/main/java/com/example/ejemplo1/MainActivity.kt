@@ -20,24 +20,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            DetailView()
+            GreetingPreview()
         }
     }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        fontSize = 100.sp,
-        lineHeight = 116.sp,
-    )
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    Ejemplo1Theme {
-        Greeting("Android")
-    }
+    DetailView()
 }

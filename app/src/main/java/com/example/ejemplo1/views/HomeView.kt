@@ -14,48 +14,40 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import com.example.ejemplo1.components.ActionButton
+import com.example.ejemplo1.components.TitleBar
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeView(){
-    Scaffold (
+    Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title={Text(text = "Home View", color= Color.White)},
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(containerColor = Color.Red)
+                title={Text(text = "Home View",
+                    color=Color.White)},
+                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                    containerColor = Color.Red
+                )
             )
+        },
+        floatingActionButton = {
+            ActionButton(Color.Red)
         }
-    ){
-        contentView()
+    )
+    {
+        ContentView()
     }
 }
 
 @Composable
-fun contentView(){
-    Column (
-        modifier = Modifier
-            .fillMaxWidth(),
+private fun ContentView()
+{
+    Column(
+        modifier=Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        Text(text="Home")
-
-    }
-}
-
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun DetailView(){
-    Scaffold (
-        topBar = {
-            CenterAlignedTopAppBar(
-                title={Text(text = "Detail View", color= Color.White)},
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(containerColor = Color.Blue)
-            )
-        }
-    ){
-        contentView()
+        TitleBar("Detail View")
     }
 }
