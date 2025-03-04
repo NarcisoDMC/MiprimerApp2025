@@ -13,21 +13,21 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun TitleView(name:String){
-    Text(text=name, fontSize=30.sp, color= Color.Black)
+    Text(text = name, fontSize = 25.sp, color = Color.Black )
 }
 
 @Composable
 fun Spacers(){
-    Spacer(modifier= Modifier.height(10.dp))
+    Spacer(modifier = Modifier.height(10.dp))
 }
 
 @Composable
-fun MainButton(name:String, backcolor:Color, color:Color, onClick:()->Unit){
-    Button(onClick = onClick, colors=ButtonDefaults.buttonColors(
-            contentColor = color,
-            containerColor = backcolor
-        )) {
-            Text(text=name)
+fun MainButton(name:String, backcolor: Color, color: Color, onClick: () -> Unit){
+    Button(onClick = onClick, colors = ButtonDefaults.buttonColors(
+        contentColor = color,
+        containerColor = backcolor
+    )) {
+        Text(text = name)
     }
 }
 

@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import com.example.ejemplo1.navigation.NavManager
 import com.example.ejemplo1.ui.theme.Ejemplo1Theme
 import com.example.ejemplo1.views.DetailView
 import com.example.ejemplo1.views.HomeView
@@ -29,5 +30,5 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    HomeView()
+    NavManager()
 }
