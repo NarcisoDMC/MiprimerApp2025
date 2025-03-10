@@ -44,7 +44,8 @@ fun HomeView(navController: NavController){
 
 
 @Composable
-fun ContentView(navController: NavController){
+private fun ContentView(navController: NavController){
+    val id=123;
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -55,7 +56,7 @@ fun ContentView(navController: NavController){
         Spacers()
         MainButton("Back", Color.Red, Color.Black) {
             //Log.d("ya", "Soy un boton generico")
-            navController.navigate("Detail")
+            navController.navigate("Detail/${id}")
 
         }
     }
